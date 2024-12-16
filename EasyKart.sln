@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Products", "EasyKart.Products\EasyKart.Products.csproj", "{418DD596-ECB4-4F56-89AA-3D78E8042A75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyKart.Products", "EasyKart.Products\EasyKart.Products.csproj", "{418DD596-ECB4-4F56-89AA-3D78E8042A75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Users", "EasyKart.Users\EasyKart.Users.csproj", "{50A4A246-FE80-4C14-AA3F-DBBA63520460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Cart", "EasyKart.Cart\EasyKart.Cart.csproj", "{8F89D4A6-6BC9-4689-91A3-A1FE736DC5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Payments", "EasyKart.Payments\EasyKart.Payments.csproj", "{C747C5C3-DA93-4946-A57F-490CE38719C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Orders", "EasyKart.Orders\EasyKart.Orders.csproj", "{07C04782-4248-410F-A0F8-706A6D56D391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Inventory", "EasyKart.Inventory\EasyKart.Inventory.csproj", "{2FAC7913-852E-48EA-BCAC-5D8B1D59C0EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Shipping", "EasyKart.Shipping\EasyKart.Shipping.csproj", "{D70DB2C6-1024-41C9-A8E6-187D8D82AB84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Recommendations", "EasyKart.Recommendations\EasyKart.Recommendations.csproj", "{94A940FE-A70A-4641-ADAD-DB08E0836169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Reviews", "EasyKart.Reviews\EasyKart.Reviews.csproj", "{FB0CF5D2-B18C-463A-9BAF-8E2325F7EA7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Discounts", "EasyKart.Discounts\EasyKart.Discounts.csproj", "{0C33C254-79C2-4D19-AB24-A4067F41B454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKart.Notifications", "EasyKart.Notifications\EasyKart.Notifications.csproj", "{783D0C50-F134-42A7-824D-1C17059B2022}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +35,46 @@ Global
 		{418DD596-ECB4-4F56-89AA-3D78E8042A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{418DD596-ECB4-4F56-89AA-3D78E8042A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{418DD596-ECB4-4F56-89AA-3D78E8042A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A4A246-FE80-4C14-AA3F-DBBA63520460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A4A246-FE80-4C14-AA3F-DBBA63520460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A4A246-FE80-4C14-AA3F-DBBA63520460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A4A246-FE80-4C14-AA3F-DBBA63520460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F89D4A6-6BC9-4689-91A3-A1FE736DC5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F89D4A6-6BC9-4689-91A3-A1FE736DC5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F89D4A6-6BC9-4689-91A3-A1FE736DC5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F89D4A6-6BC9-4689-91A3-A1FE736DC5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C747C5C3-DA93-4946-A57F-490CE38719C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C747C5C3-DA93-4946-A57F-490CE38719C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C747C5C3-DA93-4946-A57F-490CE38719C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C747C5C3-DA93-4946-A57F-490CE38719C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C04782-4248-410F-A0F8-706A6D56D391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C04782-4248-410F-A0F8-706A6D56D391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C04782-4248-410F-A0F8-706A6D56D391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C04782-4248-410F-A0F8-706A6D56D391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAC7913-852E-48EA-BCAC-5D8B1D59C0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAC7913-852E-48EA-BCAC-5D8B1D59C0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAC7913-852E-48EA-BCAC-5D8B1D59C0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAC7913-852E-48EA-BCAC-5D8B1D59C0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D70DB2C6-1024-41C9-A8E6-187D8D82AB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D70DB2C6-1024-41C9-A8E6-187D8D82AB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D70DB2C6-1024-41C9-A8E6-187D8D82AB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D70DB2C6-1024-41C9-A8E6-187D8D82AB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A940FE-A70A-4641-ADAD-DB08E0836169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A940FE-A70A-4641-ADAD-DB08E0836169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A940FE-A70A-4641-ADAD-DB08E0836169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A940FE-A70A-4641-ADAD-DB08E0836169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0CF5D2-B18C-463A-9BAF-8E2325F7EA7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0CF5D2-B18C-463A-9BAF-8E2325F7EA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0CF5D2-B18C-463A-9BAF-8E2325F7EA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0CF5D2-B18C-463A-9BAF-8E2325F7EA7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C33C254-79C2-4D19-AB24-A4067F41B454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C33C254-79C2-4D19-AB24-A4067F41B454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C33C254-79C2-4D19-AB24-A4067F41B454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C33C254-79C2-4D19-AB24-A4067F41B454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{783D0C50-F134-42A7-824D-1C17059B2022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{783D0C50-F134-42A7-824D-1C17059B2022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{783D0C50-F134-42A7-824D-1C17059B2022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{783D0C50-F134-42A7-824D-1C17059B2022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

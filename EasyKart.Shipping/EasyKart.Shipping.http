@@ -1,0 +1,6 @@
+@EasyKart.Shipping_HostAddress = http://localhost:5264
+
+GET {{EasyKart.Shipping_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@EasyKart.Notifications_HostAddress = http://localhost:5048
+
+GET {{EasyKart.Notifications_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

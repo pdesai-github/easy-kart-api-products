@@ -1,0 +1,6 @@
+@EasyKart.Users_HostAddress = http://localhost:5030
+
+GET {{EasyKart.Users_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
