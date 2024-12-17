@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: easy-kart-products
+  namespace: easy-kart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: easy-kart-products #This should be same label
+  template:
+    metadata:
+      labels:
+        app: easy-kart-products #This should be same label
+    spec:
+      containers:
+      - name: easy-kart-products
+        image: pdesaidocker/talent-net-api-products
+        ports:
+        - containerPort: 8080 #port defined in image dockerfile
+        env:
+        - name: CosmosDB__endpoint
+          valueFrom:
+            configMapKeyRef:
+              name: easy-kart-products-config-map # ConfigMap name
+              key: endpoint         # Key in the ConfigMap
+        - name: CosmosDB__authKey
+          valueFrom:
+            configMapKeyRef:
+              name: easy-kart-products-config-map
+              key: authKey
+        - name: CosmosDB__databaseId
+          valueFrom:
+            configMapKeyRef:
+              name: easy-kart-products-config-map
+              key: databaseId
+        - name: CosmosDB__containerId
+          valueFrom:
+            configMapKeyRef:
+              name: easy-kart-products-config-map
+              key: containerId
+        - name: CosmosDB__partitionKey
+          valueFrom:
+            configMapKeyRef:
+              name: easy-kart-products-config-map
+              key: partitionKey
