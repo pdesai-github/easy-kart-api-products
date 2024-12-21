@@ -11,7 +11,7 @@ pool:
 
 variables:
   dockerRegistryServiceConnection: 'docker-service-connection'
-  imageRepository: 'pdesaidocker/easy-kart-ui'
+  imageRepository: 'pdesaidocker/easy-kart-api-products'
   containerRegistry: 'pdesaidocker'
   tag: '$(Build.BuildId)'
 
@@ -34,7 +34,5 @@ steps:
     repository: $(imageRepository)
     dockerfile: 'EasyKart.Products/Dockerfile'
     buildContext: '.'
-    tags: |
-      latest
-      $(tag)
+    tags: $(tag)
     containerRegistry: $(dockerRegistryServiceConnection)
