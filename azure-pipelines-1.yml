@@ -58,7 +58,7 @@ stages:
         kubernetesServiceEndpoint: 'aks-service-conn'
         namespace: 'easy-kart'
         command: 'apply'
-        arguments: '-f /deployment.yaml'
+        arguments: '-f EasyKart.Products/deployment.yaml'
     - task: Kubernetes@1
       displayName: Apply service.yaml
       inputs:
