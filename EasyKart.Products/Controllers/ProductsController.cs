@@ -18,12 +18,19 @@ namespace EasyKart.Products.Controllers
         }
       
         [HttpGet]
-        public async Task< IEnumerable<Product>> Get()
+        public async Task<ActionResult<IEnumerable<Product>>> Get()
         {
-            List<Product> products = await _productRepository.GetProductsAsync();
-
-            return products.Take(1);
+            try
+            {
+                List<Product> products = await _productRepository.GetProductsAsync();
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (not shown here)
+                return StatusCode(500, "Internal server error");
+            }
         }
-       
+
     }
 }
