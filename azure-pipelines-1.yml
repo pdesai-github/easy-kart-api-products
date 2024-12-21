@@ -53,9 +53,16 @@ stages:
         sed -i 's/{{imageTag}}/$(tag)/g' deployment.yaml
       displayName: Replace tag in deployment.yaml
     - task: Kubernetes@1
-      displayName: Deploy to AKS
+      displayName: Apply deployment.yaml
       inputs:
         kubernetesServiceEndpoint: 'aks-service-conn'
         namespace: 'easy-kart'
         command: 'apply'
         arguments: '-f /deployment.yaml'
+    - task: Kubernetes@1
+      displayName: Apply service.yaml
+      inputs:
+        kubernetesServiceEndpoint: 'aks-service-conn'
+        namespace: 'easy-kart'
+        command: 'apply'
+        arguments: '-f /services.yaml'
