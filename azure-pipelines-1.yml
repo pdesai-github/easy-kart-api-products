@@ -50,7 +50,7 @@ stages:
     steps:
     - script: |
         echo "Replacing {{imageTag}} in deployment.yaml with $(tag)"
-        sed -i 's/{{imageTag}}/$(tag)/g' deployment.yaml
+        sed -i 's/{{imageTag}}/$(tag)/g' EasyKart.Products/deployment.yaml
       displayName: Replace tag in deployment.yaml
     - task: Kubernetes@1
       displayName: Apply deployment.yaml
@@ -65,4 +65,4 @@ stages:
         kubernetesServiceEndpoint: 'aks-service-conn'
         namespace: 'easy-kart'
         command: 'apply'
-        arguments: '-f /services.yaml'
+        arguments: '-f EasyKart.Products/services.yaml'
