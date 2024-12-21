@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: easy-kart-products
-        image: pdesaidocker/talent-net-api-products:{{imageTag}}
+        image: pdesaidocker/easy-kart-api-products:{{imageTag}}
         ports:
         - containerPort: 8080 #port defined in image dockerfile
         env:
