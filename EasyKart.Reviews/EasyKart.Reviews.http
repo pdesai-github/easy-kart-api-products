@@ -1,6 +1,0 @@
-@EasyKart.Reviews_HostAddress = http://localhost:5214
-
-GET {{EasyKart.Reviews_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

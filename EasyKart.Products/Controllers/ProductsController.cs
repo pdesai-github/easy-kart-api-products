@@ -22,7 +22,7 @@ namespace EasyKart.Products.Controllers
         {
             List<Product> products = await _productRepository.GetProductsAsync();
 
-            return products.Take(2);
+            return products.Take(1);
         }
        
     }
