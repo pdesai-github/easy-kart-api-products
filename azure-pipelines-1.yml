@@ -15,24 +15,47 @@ variables:
   containerRegistry: 'pdesaidocker'
   tag: '$(Build.BuildId)'
 
-steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: 'EasyKart.Products/EasyKart.Products.csproj'
+stages:
+- stage: Build
+  displayName: Build
+  jobs:
+    - job: BuildAndPush
+      displayName: Build and Push Docker Image
+      steps:
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'restore'
+          projects: 'EasyKart.Products/EasyKart.Products.csproj'
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'build'
+          projects: 'EasyKart.Products/EasyKart.Products.csproj'
+          arguments: '--configuration Release'
+      - task: Docker@2
+        displayName: Build and push Docker image
+        inputs:
+          command: 'buildAndPush'
+          repository: $(imageRepository)
+          dockerfile: 'EasyKart.Products/Dockerfile'
+          buildContext: '.'
+          tags: $(tag)
+          containerRegistry: $(dockerRegistryServiceConnection)
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: 'EasyKart.Products/EasyKart.Products.csproj'
-    arguments: '--configuration Release'
-
-- task: Docker@2
-  displayName: Build and push Docker image
-  inputs:
-    command: 'buildAndPush'
-    repository: $(imageRepository)
-    dockerfile: 'EasyKart.Products/Dockerfile'
-    buildContext: '.'
-    tags: $(tag)
-    containerRegistry: $(dockerRegistryServiceConnection)
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Build
+  jobs:
+  - job: DeployToAKS
+    displayName: Deploy to AKS
+    steps:
+    - script: |
+        echo "Replacing {{imageTag}} in deployment.yaml with $(tag)"
+        sed -i 's/{{imageTag}}/$(tag)/g' deployment.yaml
+      displayName: Replace tag in deployment.yaml
+    - task: Kubernetes@1
+      displayName: Deploy to AKS
+      inputs:
+        kubernetesServiceEndpoint: 'aks-service-conn'
+        namespace: 'easy-kart'
+        command: 'apply'
+        arguments: '-f /deployment.yaml'
