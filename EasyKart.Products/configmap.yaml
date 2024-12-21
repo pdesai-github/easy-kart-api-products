@@ -9,3 +9,4 @@ data:
   databaseId: "easy-kart"
   containerId: "Products"
   partitionKey: "/category"
+  AllowedOrigins: "http://localhost:4200,http://20.235.211.32"
