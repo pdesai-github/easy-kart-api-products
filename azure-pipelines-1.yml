@@ -33,6 +33,7 @@ steps:
     command: 'buildAndPush'
     repository: $(imageRepository)
     dockerfile: 'EasyKart.Products/Dockerfile'
+    buildContext: '.'
     tags: |
       latest
       $(tag)
