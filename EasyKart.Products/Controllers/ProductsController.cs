@@ -21,7 +21,8 @@ namespace EasyKart.Products.Controllers
         public async Task< IEnumerable<Product>> Get()
         {
             List<Product> products = await _productRepository.GetProductsAsync();
-            return products;
+
+            return products.Take(2);
         }
        
     }
