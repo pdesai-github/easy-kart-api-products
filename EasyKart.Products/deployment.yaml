@@ -44,8 +44,3 @@ spec:
             configMapKeyRef:
               name: easy-kart-products-config-map
               key: partitionKey
-        - name: CorsSettings__AllowedOrigins
-          valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map
-              key: AllowedOrigins
