@@ -11,6 +11,13 @@ namespace EasyKart.Products
             var allowedOriginsString = builder.Configuration.GetSection("CorsSettings:AllowedOrigins").ToString();
             var allowedOrigins = allowedOriginsString?.Split(',');
 
+            foreach (var item in allowedOriginsString)
+            {
+                Console.WriteLine("CORS");
+                Console.WriteLine(item);
+            }
+           
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowCors", builder =>
