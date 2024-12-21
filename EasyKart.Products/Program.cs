@@ -22,7 +22,7 @@ namespace EasyKart.Products
             {
                 options.AddPolicy("AllowCors", builder =>
                 {
-                    builder.WithOrigins(allowedOrigins)
+                    builder.WithOrigins("http://localhost:4200","http://20.235.211.32")
                            .AllowAnyMethod()
                            .AllowAnyHeader()
                            .AllowCredentials();
