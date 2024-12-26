@@ -10,10 +10,15 @@ EXPOSE 8081
 
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+
 COPY ["EasyKart.Products/EasyKart.Products.csproj", "EasyKart.Products/"]
-RUN dotnet restore "./EasyKart.Products/EasyKart.Products.csproj"
+COPY ["EasyKart.Products/nuget.config", "EasyKart.Products/"]
+
+
+RUN dotnet restore "./EasyKart.Products/EasyKart.Products.csproj" --configfile "./EasyKart.Products/nuget.config"
 COPY . .
 WORKDIR "/src/EasyKart.Products"
 RUN dotnet build "./EasyKart.Products.csproj" -c $BUILD_CONFIGURATION -o /app/build
