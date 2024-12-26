@@ -32,5 +32,24 @@ namespace EasyKart.Products.Controllers
             }
         }
 
+        [HttpGet("{productId}/{categoryId}")]
+        public async Task<ActionResult<Product>> Get(string productId, string categoryId)
+        {
+            try
+            {
+                Product product = await _productRepository.GetProductAsync(productId, categoryId);
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (not shown here)
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
     }
 }

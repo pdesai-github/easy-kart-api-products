@@ -53,5 +53,18 @@ namespace EasyKart.Products.Repository
 
             return products;
         }
+
+        public async Task<Product> GetProductAsync(string productId, string categoryId)
+        {
+            try
+            {
+                ItemResponse<Product> response = await _container.ReadItemAsync<Product>(productId, new PartitionKey(categoryId));
+                return response.Resource;
+            }
+            catch (CosmosException ex) 
+            {
+                return null;
+            }
+        }
     }
 }
