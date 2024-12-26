@@ -26,9 +26,11 @@ stages:
       - task: NuGetAuthenticate@1      
       - task: DotNetCoreCLI@2
         inputs:
-          command: 'restore'
-          projects: 'EasyKart.Products/EasyKart.Products.csproj'
-          nugetConfigPath: 'EasyKart.Products/nuget.config'
+           command: 'restore'
+           projects: 'EasyKart.Products/EasyKart.Products.csproj'
+           feedsToUse: 'config'
+           nugetConfigPath: 'EasyKart.Products/nuget.config'
+           externalFeedCredentials: 'nuget-art'
       - task: DotNetCoreCLI@2
         inputs:
           command: 'build'
