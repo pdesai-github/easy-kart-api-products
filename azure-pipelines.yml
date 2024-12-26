@@ -29,6 +29,7 @@ stages:
         inputs:
           command: 'restore'
           projects: 'EasyKart.Products/EasyKart.Products.csproj'
+          nugetConfigPath: 'EasyKart.Products/nuget.config'
       - task: DotNetCoreCLI@2
         inputs:
           command: 'build'
