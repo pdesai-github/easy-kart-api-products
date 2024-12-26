@@ -24,6 +24,7 @@ namespace EasyKart.Products
 
             // Add services to the container.
             builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+            builder.Services.AddSingleton<IProductDetailsRepository, ProductDetailsRepository>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

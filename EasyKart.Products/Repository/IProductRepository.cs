@@ -1,4 +1,4 @@
-﻿using EasyKart.Products.Models;
+﻿using EasyKart.Shared.Models;
 
 namespace EasyKart.Products.Repository
 {

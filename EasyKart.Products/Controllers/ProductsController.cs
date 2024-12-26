@@ -1,4 +1,4 @@
-﻿using EasyKart.Products.Models;
+﻿using EasyKart.Shared.Models;
 using EasyKart.Products.Repository;
 using Microsoft.AspNetCore.Mvc;
 
