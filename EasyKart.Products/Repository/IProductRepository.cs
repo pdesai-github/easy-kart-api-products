@@ -6,5 +6,6 @@ namespace EasyKart.Products.Repository
     {
         Task<List<Product>> GetProductsAsync();
         Task<Product> GetProductAsync(string productId, string categoryId);
+        Task<List<Product>> GetProductsByIdsAsync(List<Guid> productIds);
     }
 }

@@ -66,5 +66,22 @@ namespace EasyKart.Products.Repository
                 return null;
             }
         }
+
+        // get products by product ids
+        public async Task<List<Product>> GetProductsByIdsAsync(List<Guid> productIds)
+        {
+            List<Product> products = new List<Product>();
+            try
+            {
+                List<Product> allprod = await GetProductsAsync();
+                products = allprod.Where(p => productIds.Contains(p.Id)).ToList();
+            }
+            catch (CosmosException ex)
+            {
+                return null;
+            }
+            return products;
+        }
+
     }
 }

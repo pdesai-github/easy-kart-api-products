@@ -51,5 +51,21 @@ namespace EasyKart.Products.Controllers
             }
         }
 
+        [HttpPost("byGuids")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetByGuids([FromBody] List<Guid> guids)
+        {
+            try
+            {
+                // Assuming you have a method in your repository to get products by a list of GUIDs
+                List<Product> products = await _productRepository.GetProductsByIdsAsync(guids);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (not shown here)
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
     }
 }
