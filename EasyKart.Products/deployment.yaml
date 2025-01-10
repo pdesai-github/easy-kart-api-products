@@ -16,6 +16,13 @@ spec:
       containers:
       - name: easy-kart-products
         image: pdesaidocker/easy-kart-api-products:{{imageTag}}
+        resources:
+          requests:
+            memory: "256Mi"   # Minimum memory for the container to function
+            cpu: "250m"       # Minimum CPU for the container to function
+          limits:
+            memory: "512Mi"   # Maximum memory that can be used
+            cpu: "500m"       # Maximum CPU that can be used
         ports:
         - containerPort: 8080 #port defined in image dockerfile
         env:
@@ -26,21 +33,11 @@ spec:
               key: endpoint         # Key in the ConfigMap
         - name: CosmosDB__authKey
           valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map
-              key: authKey
+            secretKeyRef:
+              name: easy-kart-secret  
+              key: cosmosauthkey
         - name: CosmosDB__databaseId
           valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map
-              key: databaseId
-        - name: CosmosDB__containerId
-          valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map
-              key: containerId
-        - name: CosmosDB__partitionKey
-          valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map
-              key: partitionKey
+            secretKeyRef:
+              name: easy-kart-secret  
+              key: cosmosendpoint
