@@ -28,16 +28,11 @@ spec:
         env:
         - name: CosmosDB__endpoint
           valueFrom:
-            configMapKeyRef:
-              name: easy-kart-products-config-map # ConfigMap name
-              key: endpoint         # Key in the ConfigMap
+            secretKeyRef:
+              name: easy-kart-secret  
+              key: cosmosendpoint
         - name: CosmosDB__authKey
           valueFrom:
             secretKeyRef:
               name: easy-kart-secret  
               key: cosmosauthkey
-        - name: CosmosDB__databaseId
-          valueFrom:
-            secretKeyRef:
-              name: easy-kart-secret  
-              key: cosmosendpoint
