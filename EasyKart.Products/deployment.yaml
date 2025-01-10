@@ -17,7 +17,7 @@ spec:
       - name: easy-kart-products
         image: pdesaidocker/easy-kart-api-products:{{imageTag}}
         resources:
-           requests:
+          requests:
             memory: "128Mi"   # Minimum memory for the container to function
             cpu: "25m"       # Minimum CPU for the container to function
           limits:
