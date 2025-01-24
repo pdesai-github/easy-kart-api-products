@@ -63,7 +63,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: 4.224.145.64
+    - host: easy-kart.centralindia.cloudapp.azure.com
       http:
         paths:
           - path: /products(/|$)(.*)
@@ -86,7 +86,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: 4.224.145.64
+    - host: easy-kart.centralindia.cloudapp.azure.com
       http:
         paths:
           - path: /categories(/|$)(.*)
@@ -109,7 +109,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: 4.224.145.64
+    - host: easy-kart.centralindia.cloudapp.azure.com
       http:
         paths:
           - path: /productdetails(/|$)(.*)
