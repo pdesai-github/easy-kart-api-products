@@ -18,11 +18,11 @@ spec:
         image: pdesaidocker/easy-kart-api-products:{{imageTag}}
         resources:
           requests:
-            memory: "128Mi"   # Minimum memory for the container to function
-            cpu: "25m"       # Minimum CPU for the container to function
+            memory: "256Mi"   # Minimum memory for the container to function
+            cpu: "50m"       # Minimum CPU for the container to function
           limits:
-            memory: "256Mi"   # Maximum memory that can be used
-            cpu: "50m"       # Maximum CPU that can be used
+            memory: "512Mi"   # Maximum memory that can be used
+            cpu: "100m"       # Maximum CPU that can be used
         ports:
         - containerPort: 8080 #port defined in image dockerfile
         env:
@@ -36,3 +36,87 @@ spec:
             secretKeyRef:
               name: easy-kart-secret  
               key: cosmosauthkey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: easy-kart-products-service
+  namespace: easy-kart
+spec:
+  selector:
+    app: easy-kart-products #This should be same label
+  ports:
+    - protocol: TCP
+      port: 80 #Other pods in the cluster can connect to this service on port 80
+      targetPort: 8080 #port defined in image dockerfile
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: easy-kart-products-ingress
+  namespace: easy-kart
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /api/products/$2
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    ingress.class: "nginx"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: 4.224.145.64
+      http:
+        paths:
+          - path: /products(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: easy-kart-products-service
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: easy-kart-categories-ingress
+  namespace: easy-kart
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /api/categories
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    ingress.class: "nginx"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: 4.224.145.64
+      http:
+        paths:
+          - path: /categories(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: easy-kart-products-service
+                port:
+                  number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: easy-kart-productdetails-ingress
+  namespace: easy-kart
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /api/ProductDetails/$2
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    ingress.class: "nginx"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: 4.224.145.64
+      http:
+        paths:
+          - path: /productdetails(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: easy-kart-products-service
+                port:
+                  number: 80
+---
